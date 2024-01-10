@@ -1,0 +1,54 @@
+openapi : 3.0.0
+
+info:
+  title: Hello World API
+  description: Simple API that returns Hello World message
+  version: "1.0.0"
+
+servers:
+  - url : https://api.example.com/v1
+
+paths:
+  /hello:
+    get:
+      summary : get Hello World message 
+      responses: 
+        '200' : 
+          description : Successful message
+          content : 
+            application/json:
+              schema : 
+                type: object 
+                properties: 
+                  message:
+                    type: string
+                    example : Hello World!
+
+  /hello/{user} : 
+    get:
+      summary : get hello world message for username
+      parameters : 
+        - in : path 
+          name : user 
+          required : true 
+          description: Name of user to greet
+          schema : 
+            type : string
+        
+      responses: 
+        '200' :
+          description : Successful message
+          content : 
+            application/json: 
+              schema :
+                type : string
+                example : Hello World Max
+          
+
+
+
+
+
+
+
+
